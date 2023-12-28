@@ -1,0 +1,41 @@
+
+  .log-animation img{
+    float: right;
+  }
+  .from-text{
+    position: absolute;
+    background-color: aliceblue;
+    margin-top: 5%;
+    padding: 60px;
+    width: 40%;
+    height: 85vh;
+    margin-left: 60px;
+    border-radius: 10px;
+  }
+  .sub-btn{
+    background-color: royalblue;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+.from-text{
+  display: flex;
+  flex-direction: column;
+  
+}
+.from-text h1{
+  margin-bottom: 20px;
+}
+.from-text input{
+  padding: 10px;
+  column-gap: 2rem;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.from-text input::placeholder{
+  text-align: center;
+}

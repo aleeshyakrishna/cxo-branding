@@ -17,7 +17,7 @@ const Testimonal = () => {
   return (
     <div>
         <div className="main-testimonal">
-            <h1 data-aos="fade-down"  data-aos-duration="1000">Our Clint Testimonal</h1>
+            <h1 data-aos="fade-down"  data-aos-duration="1000">Our Client Testimonal</h1>
             <p data-aos="fade-down"  data-aos-duration="1000">Explore how candidates, armed with resumes from us, turned their career dreams into reality.</p>
             <div className="carosel">
             <Slider {...settings}>

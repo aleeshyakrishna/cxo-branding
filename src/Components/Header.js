@@ -5,7 +5,8 @@ import { FaFileSignature } from "react-icons/fa";
 import { MdOutlineScreenSearchDesktop } from "react-icons/md";
 import { SlBadge } from "react-icons/sl";
 import { LiaLinkedin } from "react-icons/lia";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
+import  Cofounder from '../Images/Cofounder.png'
 const Header = () => {
   return (
     <div>
@@ -28,37 +29,38 @@ const Header = () => {
             </p>
           </div>
           <div className="header-image">
-            <img src={Headerimg} alt="" />
+           <Link to='/Cxocofounder' className="hdr-img">  <img src={Cofounder} alt="" /> </Link>
           </div>
-        </div>
+        </div> 
         <div className="header-bottom-box">
           <ul
             className="header-box"
             data-aos="zoom-in"
             data-aos-duration="1000"
           >
-            <Link to="job"  smooth={true} offset={200} duration={1000}>
+            <Link to="job"   offset={200} duration={1000}>
               <li>
                 {" "}
                 <FaFileSignature className="hrd-icons" /> Resume Writing
               </li>{" "}
             </Link>
             <div className="line"></div>
-            <Link to="advice"  smooth={true} offset={200} duration={1000}>
+            <Link to="advice"   offset={200} duration={1000}>
             <li>
               {" "}
               <MdOutlineScreenSearchDesktop className="hrd-icons" /> job Search
               Advice
             </li>{" "}
             </Link>
+            
             <div className="line"></div>
-            <Link to="branding"  smooth={true} offset={200} duration={1000}><li>
+            <Link to="branding"   offset={200} duration={1000}><li>
               {" "}
               <SlBadge className="hrd-icons" />
               personal Branding
             </li></Link>
             <div className="line"></div>
-            <Link to="manage"  smooth={true} offset={200} duration={4000}><li>
+            <Link to="manage"  offset={200} duration={4000}><li>
               {" "}
               <LiaLinkedin className="hrd-icons" />
               Social Media

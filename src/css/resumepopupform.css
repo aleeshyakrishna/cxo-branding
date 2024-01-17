@@ -1,0 +1,160 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #EDDCD9;
+  height: auto;
+  width: auto;
+  border: 2px solid #264143;
+  border-radius: 20px;
+  box-shadow: 3px 4px 0px 1px #E99F4C;
+}
+
+.title {
+  color: #264143;
+  font-weight: 900;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.sub_title {
+  font-weight: 600;
+  margin: 5px 0;
+}
+.sub_title1{
+    font-weight: 300;
+}
+
+.btn-1{
+    font-size: 13px;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.btn-1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ffc506;
+    transition: 0.5s ease;
+  }
+  
+  .btn-1:hover {
+    color: #1e1e2b;
+    transition-delay: 0.5s;
+  }
+  
+  .btn-1:hover::before {
+    width: 100%;
+  }
+  
+  .btn-1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: #ffc506;
+    transition: 0.4s ease;
+    z-index: -1;
+  }
+  
+  .btn-1:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+  }
+ 
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin: 10px;
+  
+}
+
+.form_style {
+  outline: none;
+  border: 2px solid #264143;
+  box-shadow: 3px 4px 0px 1px #E99F4C;
+  width: 290px;
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+  margin-left: 50px;
+  margin-top: 5px;
+}
+
+.form_style:focus, .btn:focus {
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px #E99F4C;
+  color: black;
+}
+
+.btn {
+  padding: 15px;
+  margin: 25px 0px;
+  width: 290px;
+  font-size: 15px;
+  background: black;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px 0px #E99F4C;
+  color: black;
+}
+
+.btn:hover {
+  opacity: .9;
+}
+
+.link {
+  font-weight: 800;
+  color: #264143;
+  padding: 5px;
+}
+
+.form_group label[for="resumeFile"] {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.form_group input[type="file"] {
+  margin-top: 5px;
+  margin-left: 50px;
+}
+
+/* For the complimentary call checkbox */
+.form_group input[type="checkbox"] {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.form_group label[for="wantComplimentaryCall"] {
+  font-size: 16px;
+  margin-left: 50px;
+}
+.sub_title{
+    margin-left:50px
+}
+.sub_title1{
+    margin-left:100px
+}

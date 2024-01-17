@@ -4,6 +4,7 @@ import { LuFileStack } from "react-icons/lu";
 import { GrSettingsOption } from "react-icons/gr";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { VscArrowRight } from "react-icons/vsc";
+import {Link} from 'react-router-dom'
 const Resume = () => {
   return (
     <div className="main-resume" id='job'>
@@ -19,7 +20,7 @@ const Resume = () => {
         <h2>View Samples </h2>
         <p>  We've crafted professional resumes, <br></br>and you can explore our sample 
         <br></br>resume collection here.</p>
-        <span>Dive Deeper <VscArrowRight /></span>
+        <Link to='/Resumeform'><span>Dive Deeper <VscArrowRight /></span></Link>
         </div>
 
         <div className="box-2">

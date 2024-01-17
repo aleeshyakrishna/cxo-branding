@@ -71,3 +71,16 @@
         font-size: 50px;
     }
 }
+@media (min-width: 768px) and (max-width: 1024px){
+    .job-box{
+        border: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        padding: 70px;
+        margin-top: 40px;
+        margin-left: 160px;
+        width: 70%;
+        border-radius: 10px;
+     
+    }
+}

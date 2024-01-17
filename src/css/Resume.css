@@ -30,6 +30,21 @@
     font-family: 'Poppins', sans-serif;
     
 }
+.box-1:hover{
+    -webkit-box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+}
+.box-2:hover{
+    -webkit-box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+}
+.box-3:hover{
+    -webkit-box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+box-shadow: 7px 7px 16px 0px rgba(0,0,0,0.75);
+}
 .main-resume h1{
 top: 10px;
 font-family: 'Poppins', sans-serif;

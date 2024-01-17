@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+
+import { Provider } from "react-redux";
+import { store, persistore } from "./redux/store.js";
 // ..
 AOS.init();
 
@@ -12,7 +15,10 @@ AOS.init();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
+    
   </React.StrictMode>
 );
 

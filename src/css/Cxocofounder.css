@@ -1,0 +1,104 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-cofounder-container{
+    height: 100vh;
+}
+.cofounder-video img{
+  width: 500px;
+}
+.cofounder-image img{
+    width: 150px;
+    margin-right: 90%;
+}
+.header-text-cofounder{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.header-text-cofounder h1{
+    color: black;
+    font-size: 50px;
+}
+.header-text-cofounder p{
+    line-height: 2rem;
+}
+
+
+
+.btn {
+    font-size: 17px;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ffc506;
+    transition: 0.5s ease;
+  }
+  
+  .btn:hover {
+    color: #1e1e2b;
+    transition-delay: 0.5s;
+  }
+  
+  .btn:hover::before {
+    width: 100%;
+  }
+  
+  .btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: #ffc506;
+    transition: 0.4s ease;
+    z-index: -1;
+  }
+  
+  .btn:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+  }
+ 
+
+ @media screen and (max-width:600px) {
+  .cofounder-video img{
+    width: 300px;
+  }
+  .cofounder-image img{
+    width: 100px;
+    margin-right: 90%;
+}
+  .header-text-cofounder h1{
+    color: black;
+    font-size: 23px;
+}
+.header-text-cofounder p{
+    line-height: 2rem;
+}
+.header-text-cofounder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+ }

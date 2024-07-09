@@ -49,7 +49,7 @@ const Navbar = () => {
                   <li>Login</li>
                 </Link>
                 <Link to="/Signup">
-                  <li>SignIn</li>
+                  <li>SignUp</li>
                 </Link>
               </>
             )}

@@ -11,6 +11,7 @@
     background-color: var(--yellow);
     border-radius: 14px;
     margin-left: 15px;
+    cursor: pointer;
 }
 .brand-box-2{
     position: absolute;
@@ -21,12 +22,19 @@
     margin-top: -140px;
     margin-left: -30px;
     border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
 }
-.brand-box-2 p{
-    align-items: center;
-    padding-top: 100%;
+.brand-box-2 p {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
+    margin: 0; /* Remove default margin */
+    position: absolute;
+    bottom: 20px; /* Adjust this value as needed to position the paragraph */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Ensure the paragraph takes full width */
+    text-align: center;
 }
 .main-box{
     display: flex;

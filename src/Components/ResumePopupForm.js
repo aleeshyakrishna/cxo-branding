@@ -3,7 +3,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import "../css/resumepopupform.css";
-import axios from "axios";
+import Axios from "axios";
+import axios from "../Axios/axios";
 import { InlineWidget } from "react-calendly";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails, setTokens } from "../redux/userReducer";
@@ -25,7 +26,7 @@ const ResumePopupForm = ({ closePopup }) => {
 
   const navigate = useNavigate()
 
-  const userId = useSelector((state) => state.userData.userData._id);
+  const userId = useSelector((state) => state?.userData?.userData?._id);
   console.log(token,"toooooo")
 
   const formik = useFormik({
@@ -37,39 +38,44 @@ const ResumePopupForm = ({ closePopup }) => {
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Required"),
-      socialMediaLink: Yup.string().url("Invalid URL").required("Required"),
+      socialMediaLink: Yup.string()
+        .required("Required")
+        .matches(
+          /^(https?:\/\/)?(www\.)?linkedin\.com\/.*$/,
+          "Invalid URL, please provide a valid LinkedIn profile URL"
+        ),
     }),
-    // onSubmit: async (values, { setSubmitting, setFieldError }) => {
+
     //   try {
     //     const fileUrl = await uploadFile(file);
 
-        // const headers = {};
-        // if (token) {
-        //   headers.Authorization = `Bearer ${token}`;
-        // }
+    // const headers = {};
+    // if (token) {
+    //   headers.Authorization = `Bearer ${token}`;
+    // }
 
-        // const formData = new FormData();
-        // formData.append("resumeFile", values.resumeFile);
-        // formData.append("name", values.name);
-        // formData.append("socialMediaLink", values.socialMediaLink);
+    // const formData = new FormData();
+    // formData.append("resumeFile", values.resumeFile);
+    // formData.append("name", values.name);
+    // formData.append("socialMediaLink", values.socialMediaLink);
 
-        // const response = await axios.post(
-        //   "http://localhost:4000/api/post-resume",
-        //   formData,
-        //   {
-        //     headers: {
-        //       ...headers,
-        //       "Content-Type": "multipart/form-data",
-        //     },
-        //   }
-        // );
+    // const response = await axios.post(
+    //   "http://localhost:4000/api/post-resume",
+    //   formData,
+    //   {
+    //     headers: {
+    //       ...headers,
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   }
+    // );
 
-        // if (response.data.success) {
-        //   console.log("Data submitted successfully");
-        // } else {
-        //   console.error("Unsuccessful response:", response.data);
-        //   setFieldError("email", "Email already exists");
-        // }
+    // if (response.data.success) {
+    //   console.log("Data submitted successfully");
+    // } else {
+    //   console.error("Unsuccessful response:", response.data);
+    //   setFieldError("email", "Email already exists");
+    // }
     //   } catch (error) {
     //     console.error("Error during form submission:", error.message);
     //     if (error.response) {
@@ -84,15 +90,12 @@ const ResumePopupForm = ({ closePopup }) => {
     onSubmit: async (values, { setSubmitting, setFieldError }) => {
       try {
         const headers = {};
-        // if (token) {
-        //   headers.Authorization = `Bearer ${token}`;
-        //   console.log("headers.Authorization", headers.Authorization);
-        // }
+
         const formData = new FormData();
         formData.append("file", values.resumeFile);
         formData.append("upload_preset", "resume_writing");
 
-        const cloudinaryResponse = await axios.post(
+        const cloudinaryResponse = await Axios.post(
           `https://api.cloudinary.com/v1_1/${cl.config().cloud_name}/upload`,
           formData,
           {
@@ -105,46 +108,20 @@ const ResumePopupForm = ({ closePopup }) => {
         const fileUrl = cloudinaryResponse.data.secure_url;
         console.log(fileUrl, "fileUlrr");
 
-        const response = await axios.post(
-          "http://localhost:4000/api/uploadpdf",
-          {
-            fileUrl,
-            userId,
-            socialMediaLink: values.socialMediaLink,
-            wantComplimentaryCall: values.wantComplimentaryCall,
-
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await axios.post("/uploadpdf", {
+          fileUrl,
+          userId,
+          socialMediaLink: values.socialMediaLink,
+          wantComplimentaryCall: values.wantComplimentaryCall,
+        });
         toast.success("Form submitted successfully!");
-        setTimeout(() => { 
-          navigate('/')
-        },2000)
-      }
-      catch(error) {
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      } catch (error) {
         console.error("Error during file upload:", error.message);
       }
-    // const pdfUpload = new FormData();
-    // pdfUpload.append("file", values.resumeFile);
-    // pdfUpload.append("userId", userId);
-    // pdfUpload.append("socialMediaLink", values.socialMediaLink);
-
-
-  //     console.log(pdfUpload,'rrrrrrrrrrrrrrrrrrrrr');
-  //  const response = await axios.post(
-  //    "http://localhost:4000/api/uploadpdf",
-  //    pdfUpload,
-  //    {
-  //      headers: {
-  //        "Content-Type": "multipart/form-data",
-  //      },
-  //    }
-  //  );
-
-    }
+    },
   });
  const handlePdfFileChange = (e) => {
    const file = e.target.files[0];

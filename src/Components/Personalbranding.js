@@ -1,7 +1,9 @@
 // Personalbranding.js
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import BrandingModal from "./BrandingModal";
 import VideoResumeModal from "./VideoResumeModal"
+import WebsiteModal from "./PersonalisedModal"
 import "../css/Personalbranding.css";
 import Kit from "../Images/Kit.png";
 import vds from "../Images/vds.png";
@@ -15,14 +17,48 @@ const Personalbranding = () => {
   const [videoTestimonialModalOpen, setVideoTestimonialModalOpen] =
     useState(false);
   const [videoResumeModalOpen, setVideoResumeModalOpen] = useState(false);
+  const [websiteModalOpen, setWebsiteModalOpen] = useState(false);
 
-  const openLogoIdModal = () => setLogoIdModalOpen(true);
+  const token = useSelector((state) => state.userData.token);
+  const navigate = useNavigate();
+
+  const openLogoIdModal = () => { 
+    if (token) {
+      setLogoIdModalOpen(true);
+    } else {
+      navigate("/login");
+    }
+  }
   const closeLogoIdModal = () => setLogoIdModalOpen(false);
 
-  const openVideoTestimonialModal = () => setVideoTestimonialModalOpen(true);
+  const openVideoTestimonialModal = () => {
+     if (token) {
+       setVideoTestimonialModalOpen(true);
+    }
+     else {
+       navigate("/login");
+    }
+  }
   const closeVideoTestimonialModal = () => setVideoTestimonialModalOpen(false);
 
-  const openVideoResumeModal = () => setVideoResumeModalOpen(true);
+    const openWebsiteModal = () => {
+      if (token) {
+        setWebsiteModalOpen(true);
+      } else {
+        navigate("/login");
+      }
+  }
+  const closeWebsiteModal = () => setWebsiteModalOpen(false);
+   
+  
+
+  const openVideoResumeModal = () => {
+    if (token) {
+      setVideoResumeModalOpen(true);
+    } else {
+      navigate("/login");
+    }
+  } 
   const closeVideoResumeModal = () => setVideoResumeModalOpen(false);
 
   const handleOnclick = () => {
@@ -36,6 +72,11 @@ const Personalbranding = () => {
   const handleOnclickWebsite = () => {
     openVideoResumeModal();
   };
+  const handleOnclickPersonal = () => {
+    openWebsiteModal();
+  };
+
+
 
   return (
     <div>
@@ -47,9 +88,13 @@ const Personalbranding = () => {
       >
         <h1>Personal Branding Solutions</h1>
         <p>
-          Your personal brand is very vital to you professionally. It is how you
-          present yourself to potential employers. We provide you with solutions
-          to ensure that employers see you in the way you want them to!
+          Enhance Your Personal Brand with a Personalized Website In today's
+          digital world, a personalized website is a powerful tool for
+          showcasing your skills, portfolio, and accomplishments. Our website
+          management service will design and develop a stunning website that
+          reflects your unique personal brand. With a professionally crafted
+          website, you can leave a lasting impression on potential employers and
+          create new opportunities for career growth.
         </p>
       </div>
 
@@ -83,7 +128,7 @@ const Personalbranding = () => {
           </div>
 
           <div className="brand-box-container">
-            <div className="brand-box-1">
+            <div className="brand-box-1" onClick={handleOnclickPersonal}>
               <img src={pwd} alt="" width={200} />
             </div>
             <div className="brand-box-2">
@@ -121,6 +166,16 @@ const Personalbranding = () => {
           // Handle form submission logic for Video Resume
           // ...
           closeVideoResumeModal(); // Close the modal after submission
+        }}
+      />
+
+      <WebsiteModal
+        isOpen={websiteModalOpen}
+        onRequestClose={closeWebsiteModal}
+        handleSubmit={() => {
+          // Handle form submission logic for Video Resume
+          // ...
+          closeWebsiteModal(); // Close the modal after submission
         }}
       />
     </div>

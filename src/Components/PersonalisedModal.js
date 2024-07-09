@@ -1,23 +1,15 @@
+// VideoResumeModal.js
 import React, { useState } from "react";
 import Modal from "react-modal";
-
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import Axios from "axios";
 import axios from "../Axios/axios";
 import { useDispatch, useSelector } from "react-redux";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import "../css/JobAdviceModal.css";
-import cloudinary from "cloudinary-core";
-
 import { InlineWidget } from "react-calendly";
-const cl = cloudinary.Cloudinary.new({ cloud_name: "dhwdphigu" });
-
-
-
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -33,59 +25,40 @@ const customStyles = {
   },
 };
 
-const JobAdviceModal = ({ isOpen, onRequestClose, handleSubmit }) => {
+const VideoResumeModal = ({ isOpen, onRequestClose, handleSubmit }) => {
   const navigate = useNavigate();
   const [wantComplimentaryCall, setWantComplimentaryCall] = useState(false);
   const [closeClick, setCloseClick] = useState(false);
-  // const [file, setFile] = useState(null);
-  // const [selectedPdf, setSelectedPdf] = useState(null);
-  const { token } = useSelector((state) => state.userData);
   const userId = useSelector((state) => state?.userData?.userData?._id);
-  console.log(token,"toooooo")
+
   const formik = useFormik({
     initialValues: {
       fullname: "",
-      socialmedialink: "",
-      resume: null,
+      personalWebsite: "",
       wantComplimentaryCall: false,
     },
     validationSchema: Yup.object({
       fullname: Yup.string().required("Required"),
-      socialmedialink: Yup.string().url("Invalid URL").required("Required"),
+      // currentLocation: Yup.string().required("Required"),
+      personalWebsite: Yup.string().url("Invalid URL"),
     }),
 
-    onSubmit: async (values, { setSubmitting, setFieldError }) => {
+    onSubmit: async (values) => {
       try {
-        const headers = {};
-        const formData = new FormData();
-        formData.append("file", values.resume);
-        formData.append("upload_preset", "job_advice");
-
-        const cloudinaryResponse = await Axios.post(
-          `https://api.cloudinary.com/v1_1/${cl.config().cloud_name}/upload`,
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
-
-        const fileUrl = cloudinaryResponse.data.secure_url;
-
-        const response = await axios.post("/post-jobadvice", {
-          fileUrl,
+        const response = await axios.post("/post-personalisedwebsite", {
           userId,
-          socialMediaLink: values.socialmedialink,
+          website: values.personalWebsite,
           wantComplimentaryCall: values.wantComplimentaryCall,
         });
 
         toast.success("Form submitted successfully!");
         setTimeout(() => {
+          onRequestClose();
           navigate("/");
         }, 2000);
       } catch (error) {
-        console.error("Error during file upload:", error.message);
+        console.error("Error during form submission:", error.message);
+        // Handle error
       }
     },
   });
@@ -102,14 +75,6 @@ const JobAdviceModal = ({ isOpen, onRequestClose, handleSubmit }) => {
     setCloseClick(true);
   };
 
-     const handleFileChange = (e) => {
-       const file = e.target.files[0];
-
-       if (file) {
-         formik.setFieldValue("resume", file);
-       }
-     };
-
   return (
     <Modal
       isOpen={isOpen}
@@ -120,7 +85,7 @@ const JobAdviceModal = ({ isOpen, onRequestClose, handleSubmit }) => {
       <ToastContainer />
       <div className="resume-form">
         <div className="form-int-icon">
-          <h1>Get Job Advice</h1>
+          <h1>Get Personalized Website</h1>
           <AiOutlineCloseCircle
             className="form-icon"
             onClick={onRequestClose}
@@ -145,38 +110,27 @@ const JobAdviceModal = ({ isOpen, onRequestClose, handleSubmit }) => {
               <div className="error-message">{formik.errors.fullname}</div>
             )}
           </div>
+          
           <div className="form_group">
-            <label className="sub_title" htmlFor="socialmedialink">
-              Social Media Link
+            <label className="sub_title" htmlFor="personalWebsite">
+              Already have a Personal Website
             </label>
             <input
-              placeholder="Enter your social media link"
+              placeholder="Enter your personal website URL"
               className="form_style"
               type="text"
-              id="socialmedialink"
-              name="socialmedialink"
-              value={formik.values.socialmedialink}
+              id="personalWebsite"
+              name="personalWebsite"
+              value={formik.values.personalWebsite}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.socialmedialink &&
-              formik.errors.socialmedialink && (
+            {formik.touched.personalWebsite &&
+              formik.errors.personalWebsite && (
                 <div className="error-message">
-                  {formik.errors.socialmedialink}
+                  {formik.errors.personalWebsite}
                 </div>
               )}
-          </div>
-          <div className="form_group">
-            <label className="sub_title" htmlFor="resume">
-              Upload Resume
-            </label>
-            <input
-              type="file"
-              id="resume"
-              name="resume"
-              accept=".pdf,.doc,.docx"
-              onChange={handleFileChange}
-            />
           </div>
           {wantComplimentaryCall ? (
             <div className="calendly-embed">
@@ -221,4 +175,4 @@ const JobAdviceModal = ({ isOpen, onRequestClose, handleSubmit }) => {
   );
 };
 
-export default JobAdviceModal;
+export default VideoResumeModal;

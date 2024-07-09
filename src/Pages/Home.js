@@ -12,15 +12,18 @@ const Home = () => {
     <div>
       <Navbar />
       <Header />
-      <Resume />
-      <Testimonal />
-      <Jobsearch  />
+      <div id='resume'>
+        <Resume />
+      </div>
+
+      <Jobsearch />
       <Personalbranding />
       <Profilemanagement />
+      <Testimonal />
+
       <Footer />
     </div>
-    
-  )
+  );
 }
 
 export default Home

@@ -1,52 +1,59 @@
 /* Add this style to your CSS */
 
-
-.submit-button{
-    font-size: 13px;
-    background: transparent;
-    border: none;
-    padding: 1em 1.5em;
-    color: black;
-    text-transform: uppercase;
-    position: relative;
-    transition: 0.5s ease;
-    cursor: pointer;
-    margin-left: 30%;
+.submit-button {
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  color: black;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin-left: 30%;
 }
+
 .submit-button::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0;
-    background-color: #ffc506;
-    transition: 0.5s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffc506;
+  transition: 0.5s ease;
+}
+
+.submit-button:hover {
+  color: #1e1e2b;
+  transition-delay: 0.5s;
+}
+
+.submit-button:hover::before {
+  width: 100%;
+}
+
+.submit-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #ffc506;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.submit-button:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: aliceblue;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  .submit-button {
+    margin-left: 0; /* Adjusted margin for smaller screens */
   }
-  
-  .submit-button:hover {
-    color: #1e1e2b;
-    transition-delay: 0.5s;
-  }
-  
-  .submit-button:hover::before {
-    width: 100%;
-  }
-  
-  .submit-button::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 0;
-    width: 100%;
-    background-color: #ffc506;
-    transition: 0.4s ease;
-    z-index: -1;
-  }
-  
-  .submit-button:hover::after {
-    height: 100%;
-    transition-delay: 0.4s;
-    color: aliceblue;
-  }
+}

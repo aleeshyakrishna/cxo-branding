@@ -16,6 +16,7 @@ nav{
 }
 .nav-logo img{
     width: 100px;
+
   
 }
 .nav-logo{
@@ -81,6 +82,7 @@ nav img{
     list-style: none;
     margin: 10px;
     align-items: center;
+    cursor: pointer;
  }
  nav .nav-log li:nth-child(1){
     padding-top: 5px;

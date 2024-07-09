@@ -6,19 +6,32 @@ import Lottie from "lottie-react";
 import { useNavigate, Link } from "react-router-dom";
 import Login from "../Animation/Login.json";
 import { GoogleLogin } from "react-google-login";
-import axios from "axios";
+import axios from "../Axios/axios.js";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../redux/userReducer";
 
-
 const Signup = () => {
-   const dispatch = useDispatch();
-   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-   const responseGoogle = (response) => {
-     // Handle Google login response
-     console.log(response);
-   };
+  const signinWithGoogle = () => {
+    window.open("http://localhost:4000/auth/google/callback", "_self");
+  };
+  const responseGoogle = (response) => {
+    // Handle Google login response
+    console.log(response);
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -29,11 +42,14 @@ const Signup = () => {
       password: "",
       confirmPassword: "",
     },
+
     validationSchema: Yup.object({
       fullName: Yup.string().required("Required"),
       phoneNo: Yup.string()
         .required("Required")
-        .matches(/^[0-9]{10}$/, "Must be exactly 10 digits"),
+        .matches(/^[0-9]{10}$/, "Must be exactly 10 digits")
+        .matches(/^[6-9]\d{9}$/, "Invalid mobile number")
+        .matches(/^(?!(\d)\1{3})\d{10}$/, "Invalid mobile number"),
       email: Yup.string().email("Invalid email address").required("Required"),
       confirmEmail: Yup.string()
         .oneOf([Yup.ref("email"), null], "Emails must match")
@@ -48,19 +64,17 @@ const Signup = () => {
     onSubmit: async (values, { setSubmitting, setFieldError }) => {
       try {
         // Your form submission logic here
-        const response = await axios.post(
-          "http://localhost:4000/api/signup",
-          values
-        );
-         if (response.data.success) {
-           console.log("Signup successful!");
-           // Redirect or perform other actions on successful signup
+        const response = await axios.post("/signup", values);
+        if (response.data.success) {
+          console.log("Signup successful!");
+          // Redirect or perform other actions on successful signup
           dispatch(setUserDetails(response.data.userData));
-           navigate("/");
-         } else {
-           // Handle unsuccessful signup (email already exists, etc.)
-           setFieldError("email", "Email already exists");
-         }
+          console.log("response.userdata", response.data.userData);
+          navigate("/login");
+        } else {
+          // Handle unsuccessful signup (email already exists, etc.)
+          setFieldError("email", "Email already exists");
+        }
         console.log("Form submitted:", values);
         // navigate("/"); // Redirect after successful submission
       } catch (error) {
@@ -137,12 +151,18 @@ const Signup = () => {
 
             <div className="row">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+              />
+              <i
+                className={`fas ${
+                  showPassword ? "fa-eye-slash" : "fa-eye"
+                } password-toggle-icon`}
+                onClick={togglePasswordVisibility}
               />
               {formik.touched.password && formik.errors.password && (
                 <div className="error-message">{formik.errors.password}</div>
@@ -151,12 +171,18 @@ const Signup = () => {
 
             <div className="row">
               <input
-                type="password"
+                type={showConfirmPassword ? "text" : "password"}
                 name="confirmPassword"
                 placeholder="Confirm Password"
                 value={formik.values.confirmPassword}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+              />
+              <i
+                className={`fas ${
+                  showConfirmPassword ? "fa-eye-slash" : "fa-eye"
+                } password-toggle-icon`}
+                onClick={toggleConfirmPasswordVisibility}
               />
               {formik.touched.confirmPassword &&
                 formik.errors.confirmPassword && (
@@ -172,15 +198,15 @@ const Signup = () => {
           </form>
 
           {/* Google Login Button */}
-          <div className="google-login-btn">
+          <button className="google-login-btn" onClick={signinWithGoogle}>
             <GoogleLogin
-              clientId="YOUR_GOOGLE_CLIENT_ID"
-              buttonText="Signup with Google"
+              clientId="clientid"
+              buttonText="SignIn with Google"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
               cookiePolicy="single_host_origin"
             />
-          </div>
+          </button>
 
           {/* Additional UI or animation elements can be added here */}
           <p>

@@ -14,9 +14,9 @@ const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const signinWithGoogle = () => {
-    window.open("http://localhost:4000/auth/google/callback", "_self");
-  };
+  // const signinWithGoogle = () => {
+  //   window.open("http://localhost:4000/auth/google/callback", "_self");
+  // };
   const responseGoogle = (response) => {
     // Handle Google login response
     console.log(response);
@@ -198,7 +198,7 @@ const Signup = () => {
           </form>
 
           {/* Google Login Button */}
-          <button className="google-login-btn" onClick={signinWithGoogle}>
+          {/* <button className="google-login-btn" onClick={signinWithGoogle}>
             <GoogleLogin
               clientId="clientid"
               buttonText="SignIn with Google"
@@ -206,7 +206,7 @@ const Signup = () => {
               onFailure={responseGoogle}
               cookiePolicy="single_host_origin"
             />
-          </button>
+          </button> */}
 
           {/* Additional UI or animation elements can be added here */}
           <p>

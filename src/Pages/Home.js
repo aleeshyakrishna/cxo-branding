@@ -7,18 +7,33 @@ import Jobsearch from '../Components/Jobsearch.js'
 import Personalbranding from '../Components/Personalbranding.js'
 import Profilemanagement from '../Components/Profilemanagement.js'
 import Footer from '../Components/Footer.js'
+import OurServices from '../Components/OurServices.js'
 const Home = () => {
   return (
     <div>
       <Navbar />
       <Header />
-      <div id='resume'>
+      {/* <div id='resume'>
         <Resume />
-      </div>
-
-      <Jobsearch />
+      </div> */}
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      
+      <OurServices />
+      {/* <Jobsearch />
       <Personalbranding />
-      <Profilemanagement />
+      <Profilemanagement /> */}
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <Testimonal />
 
       <Footer />

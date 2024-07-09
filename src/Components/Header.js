@@ -5,34 +5,39 @@ import Headerimg from "../Images/Headerimg.jpg";
 import ResumeWriting from "../Images/resume-writing.png";
 import JobAdvice from "../Images/job-search.png";
 import PersonalBranding from "../Images/personal-branding.png";
-import Cofounder from "../Images/Cofounder.png";
-
+import Cofounder from "../Images/professional1.jpg";
 const Header = () => {
   return (
     <div>
       <div className="header-main">
         <div className="header-text-container">
-          <div
-            className="header-txt"
-            data-aos="fade-down"
-            data-aos-duration="1000"
-          >
-            <h1>Creating </h1>
-            <br />
-            <h1>CXO Stories</h1>
-            <p>
-              With our exceptional resume writing service, you can differentiate
-              yourself from the competition <br />
-              and make a lasting impact on potential employers.
-            </p>
+          <Link to="/Cxocofounder" className="hdr-img">
+            <img  alt="" />
+          </Link>
           </div>
-          <div className="header-image">
-            <Link to="/Cxocofounder" className="hdr-img">
-              <img src={Cofounder} alt="" />
-            </Link>
-          </div>
-        </div>
-        <div className="header-bottom-box">
+        
+
+
+
+
+
+
+
+
+
+
+          {/* <div className="header-image">
+              <iframe
+                className="adpatation-to-mobile-yt-video"
+                src="https://www.youtube.com/embed/MSzppjFe1iM?si=-Bm6Z01t75zFvvZz"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+          </div> */}
+        
+        {/* <div className="header-bottom-box">
           <ul
             className="header-box"
             data-aos="zoom-in"
@@ -94,10 +99,25 @@ const Header = () => {
               </li>
             </Link>
           </ul>
-        </div>
-        <div className="yellow-bg"></div>
+        </div> */}
+        {/* <div className="yellow-bg"></div> */}
+        <div
+            className="header-txt"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          >
+            <h1>Creating </h1>
+            <h1>CXO Stories</h1>
+            <p>
+              With our exceptional resume writing service, you can differentiate
+              yourself from the competition <br />
+              and make a lasting impact on potential employers.
+            </p>
+          </div>
       </div>
+      
     </div>
+
   );
 };
 

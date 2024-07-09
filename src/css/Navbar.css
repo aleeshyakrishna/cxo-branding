@@ -13,6 +13,7 @@ nav{
     z-index: 3;
     position: fixed;
     width: 100%;
+    top: 0;
 }
 .nav-logo img{
     width: 100px;

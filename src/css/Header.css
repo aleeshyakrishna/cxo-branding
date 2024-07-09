@@ -5,11 +5,20 @@
 }
 
 .header-main {
+    background-image: url("../Images/professional1.jpg");
     height: 95vh;
     width: 100%;
     background-color: hsl(0, 0%, 96%);
     z-index: -3;
+    display: flex;
+    /* opacity: 0.5; */
+    /* align-content: space-between; */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* position: absolute; */
 }
+
 
 .yellow-bg {
     background-color: var(--yellow);
@@ -20,21 +29,29 @@
 }
 
 .header-text-container {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-decoration: none;
+    width: 100vh;
+    /* height: 1vh; */
+    /* margin-top: 160px; */
+}
+.hdr-img img {
+    /* text-decoration: none;
+    width: 100%; */
+    text-decoration: none;
+    width: 70%;
+    /* margin-top: -230px; */
 }
 
 .header-txt {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     width: 80%;
-    z-index: 1;
-    margin-top: 100px;
+    /* z-index: 1; */
+    background-color: whitesmoke;
+    /* margin-top: -100px; */
 }
 
 .header-txt h1 {
@@ -49,13 +66,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.header-image img {
+.header-image{
     position: absolute;
-    margin-left: 20%;
-    width: 80%;
-    z-index: 1;
-    margin-top: -30%;
-    border-radius: 20px;
+    left: 55%;
+    top: 23%;
+    opacity: 0.5;
+}
+.adpatation-to-mobile-yt-video{
+    width: 400px !important;
+    height: 300px !important;
 }
 
 .header-txt p {
@@ -103,16 +122,16 @@
     height: auto; /* Maintain aspect ratio */
 }
 
-.hdr-img img {
-    text-decoration: none;
-}
+
 
 @media screen and (max-width: 600px) {
     .header-main {
-        height: 95vh;
+        height: 100vh;
         width: 100%;
         background-color: hsl(0, 0%, 96%);
-        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .yellow-bg {

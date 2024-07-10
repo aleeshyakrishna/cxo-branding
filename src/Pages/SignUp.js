@@ -5,7 +5,7 @@ import "../css/Signin.css";
 import Lottie from "lottie-react";
 import { useNavigate, Link } from "react-router-dom";
 import Login from "../Animation/Login.json";
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
 import axios from "../Axios/axios.js";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../redux/userReducer";
@@ -17,10 +17,10 @@ const Signup = () => {
   // const signinWithGoogle = () => {
   //   window.open("http://localhost:4000/auth/google/callback", "_self");
   // };
-  const responseGoogle = (response) => {
-    // Handle Google login response
-    console.log(response);
-  };
+  // const responseGoogle = (response) => {
+  //   // Handle Google login response
+  //   console.log(response);
+  // };
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);

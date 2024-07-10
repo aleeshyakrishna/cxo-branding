@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import "../css/Login.css";
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
 import axios from "../Axios/axios.js";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -34,30 +34,30 @@ const Login = () => {
     getTokenFromUrl();
   }, [location.search, dispatch, navigate]);
 
-  const loginWithGoogle = () => {
-    window.open("http://localhost:4000/auth/google/callback", "_self");
-  };
+  // const loginWithGoogle = () => {
+  //   window.open("http://localhost:4000/auth/google/callback", "_self");
+  // };
 
-  const responseGoogle = async (response) => {
-    console.log(response,"ress in google");
-    try {
-      const res = await axios.get("/auth/google/callback", {
-        params: { code: response.code },
-        withCredentials: true,
-      });
-      const { token, userData } = res.data;
-      if (token) {
-        localStorage.setItem("userAccessToken", token);
-        dispatch(setUserDetails(userData));
-        dispatch(setTokens(token));
-        navigate("/");
-      } else {
-        console.error("Google login failed:", res.data.error);
-      }
-    } catch (error) {
-      console.error("Error during Google login:", error.message);
-    }
-  };
+  // const responseGoogle = async (response) => {
+  //   console.log(response,"ress in google");
+  //   try {
+  //     const res = await axios.get("/auth/google/callback", {
+  //       params: { code: response.code },
+  //       withCredentials: true,
+  //     });
+  //     const { token, userData } = res.data;
+  //     if (token) {
+  //       localStorage.setItem("userAccessToken", token);
+  //       dispatch(setUserDetails(userData));
+  //       dispatch(setTokens(token));
+  //       navigate("/");
+  //     } else {
+  //       console.error("Google login failed:", res.data.error);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error during Google login:", error.message);
+  //   }
+  // };
 
   const formik = useFormik({
     initialValues: {
@@ -131,7 +131,7 @@ const Login = () => {
           </button>
         </form>
 
-        <button className="google-login-btn" onClick={loginWithGoogle}>
+        {/* <button className="google-login-btn" onClick={loginWithGoogle}>
           <GoogleLogin
             clientId="clientid"
             buttonText="Login with Google"
@@ -139,7 +139,7 @@ const Login = () => {
             onFailure={responseGoogle}
             cookiePolicy="single_host_origin"
           />
-        </button>
+        </button> */}
 
         <p>
           Dont have an account? <Link to="/Signup">Click Here...</Link>

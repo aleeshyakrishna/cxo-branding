@@ -21,7 +21,7 @@ const Testimonal = () => {
             <p data-aos="fade-down"  data-aos-duration="1000">Explore how candidates, armed with resumes from us, turned their career dreams into reality.</p>
             <div className="carosel">
             <Slider {...settings}>
-          <div>
+          {/* <div>
             <div className="caro-box-1">
                 <img src={Headerimg} width={100} alt="" />
                 <p>“ My experience with Mahesh of CXO Branding has exceeded my very 
@@ -30,8 +30,8 @@ const Testimonal = () => {
                 <h5>Dulce Torff</h5>
                 <p></p>
             </div>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
           <div className="caro-box-2">
                 <img src={Headerimg} width={100} alt="" />
                 <p>“ My experience with Mahesh of CXO Branding has exceeded my very 
@@ -40,8 +40,8 @@ const Testimonal = () => {
                 <h5>Dulce Torff</h5>
                 <p></p>
             </div>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
           <div className="caro-box-3">
                 <img src={Headerimg} width={100} alt="" />
                 <p>“ My experience with Mahesh of CXO Branding has exceeded my very 
@@ -50,8 +50,8 @@ const Testimonal = () => {
                 <h5>Dulce Torff</h5>
                 <p></p>
             </div>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
           <div className="caro-box-4">
                 <img src={Headerimg} width={100} alt="" />
                 <p>“ My experience with Mahesh of CXO Branding has exceeded my very 
@@ -60,8 +60,8 @@ const Testimonal = () => {
                 <h5>Dulce Torff</h5>
                 <p></p>
             </div>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
           <div className="caro-box-5">
                 <img src={Headerimg} width={100} alt="" />
                 <p>“ My experience with Mahesh of CXO Branding has exceeded my very 
@@ -100,7 +100,7 @@ const Testimonal = () => {
                 <h5>Dulce Torff</h5>
                 <p></p>
             </div>
-          </div>
+          </div> */}
           <div>
           <div className="caro-box-9">
                 <img src={Headerimg} width={100} alt="" />

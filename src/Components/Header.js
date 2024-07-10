@@ -6,7 +6,9 @@ import ResumeWriting from "../Images/resume-writing.png";
 import JobAdvice from "../Images/job-search.png";
 import PersonalBranding from "../Images/personal-branding.png";
 import Cofounder from "../Images/professional1.jpg";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+  const navigate = useNavigate()
   return (
     <div>
       <div className="header-main">
@@ -17,10 +19,10 @@ const Header = () => {
           </div>
           <div className="buttonDivs">
 
-          <button >Looking for job?</button>  <br/>
+         <Link to='our'> <button >Looking for job?</button> </Link> <br/>
           <br/>
           
-          <button>Start something on Myown</button>
+          <Link to='branding'><button >Start something on Myown</button></Link>
           </div>
 
         

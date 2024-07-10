@@ -4,6 +4,7 @@ import Header from '../Components/Header.js'
 import Resume from '../Components/Resume.js'
 // import Testimonials from '../Components/Testimonials.js'
 // import Testimonials from '../Components/Testimonials.js'
+import Testimonal from '../Components/Testimonal.js'
 import Jobsearch from '../Components/Jobsearch.js'
 import Personalbranding from '../Components/Personalbranding.js'
 import Profilemanagement from '../Components/Profilemanagement.js'
@@ -23,9 +24,9 @@ const Home = () => {
       
       
       <OurServices />
-      {/* <Jobsearch />
+      {/* <Jobsearch /> */}
       <Personalbranding />
-      <Profilemanagement /> */}
+      <Profilemanagement />
       <br/>
       <br/>
       <br/>
@@ -34,7 +35,7 @@ const Home = () => {
       <br/>
       <br/>
       <br/>
-      {/* <Testimonials/> */}
+      <Testimonal/>
 
       <Footer />
     </div>

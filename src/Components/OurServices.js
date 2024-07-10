@@ -13,7 +13,7 @@ const OurServices = () => {
     return (
         <>
             <h1 data-aos="fade-down" data-aos-duration="1000">Our Services</h1>
-            <div className="container-fluid mb-5 px-4 px-lg-0 Achieve-pro-main py-5">
+            <div className="container-fluid mb-5 px-4 px-lg-0 Achieve-pro-main py-5" activeClass="active" smooth={true} id='our'>
                 <div
                     className="resume-boxes"
                     data-aos="fade-right"

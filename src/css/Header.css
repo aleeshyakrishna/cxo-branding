@@ -21,14 +21,13 @@
 }
 
 .buttonDivs button{
-    color: white;
+    color: black;
     font-size: xx-large;
     font-weight: bold;
     border-radius: 1rem;
     /* width: 100%; */
     /* opacity: 1; */
     box-shadow: black;
-    background-color: black;
 }
 .buttonDivs button:hover{
     background-color: #f1c40f;

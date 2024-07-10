@@ -5,12 +5,13 @@
 }
 
 .header-main {
-    background-image: url("../Images/professional1.jpg");
+    background-image: url("../Images/professional3.jfif");
     height: 95vh;
     width: 100%;
     background-color: hsl(0, 0%, 96%);
     z-index: -3;
     display: flex;
+    margin-top: 25px;
     /* opacity: 0.5; */
     /* align-content: space-between; */
     flex-direction: column;

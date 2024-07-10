@@ -2,7 +2,8 @@ import React from 'react'
 import Navbar from '../Components/Navbar.js'
 import Header from '../Components/Header.js'
 import Resume from '../Components/Resume.js'
-import Testimonal from '../Components/Testimonal.js'
+// import Testimonials from '../Components/Testimonials.js'
+// import Testimonials from '../Components/Testimonials.js'
 import Jobsearch from '../Components/Jobsearch.js'
 import Personalbranding from '../Components/Personalbranding.js'
 import Profilemanagement from '../Components/Profilemanagement.js'
@@ -18,9 +19,8 @@ const Home = () => {
       </div> */}
       <br/>
       <br/>
-      <br/>
-      <br/>
-      <br/>
+    
+      
       
       <OurServices />
       {/* <Jobsearch />
@@ -34,7 +34,7 @@ const Home = () => {
       <br/>
       <br/>
       <br/>
-      <Testimonal />
+      {/* <Testimonials/> */}
 
       <Footer />
     </div>

@@ -11,10 +11,18 @@ const Header = () => {
     <div>
       <div className="header-main">
         <div className="header-text-container">
-          <Link to="/Cxocofounder" className="hdr-img">
+          {/* <Link to="/Cxocofounder" className="hdr-img">
             <img  alt="" />
-          </Link>
+          </Link> */}
           </div>
+          <div className="buttonDivs">
+
+          <button >Looking for job?</button>  <br/>
+          <br/>
+          
+          <button>Start something on Myown</button>
+          </div>
+
         
 
 
